@@ -1,0 +1,31 @@
+[project]
+name = "dockerapp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "gradio",
+    "torch",
+    "torchaudio",
+    "huggingface_hub",
+    "numpy",
+    "torchcodec",
+]
+
+# Use CPU-only PyTorch on all platforms
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu" },
+]
+torchaudio = [
+    { index = "pytorch-cpu" },
+]
+torchcodec = [
+    { index = "pytorch-cpu" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

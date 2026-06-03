@@ -1,0 +1,20 @@
+FROM python:3.10-slim
+
+RUN pip install --no-cache-dir uv
+
+WORKDIR /app
+COPY . .
+
+# install as root (safe for deps)
+RUN uv sync --frozen
+
+# then switch user
+RUN useradd -m appuser
+RUN chown -R appuser:appuser /app
+
+USER appuser
+
+EXPOSE 7860
+ENV GRADIO_SERVER_NAME=0.0.0.0
+
+CMD ["uv", "run", "appHFBucket.py"]

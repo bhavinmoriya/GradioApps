@@ -1,0 +1,22 @@
+.env
+.venv
+env/
+venv/
+.vscode/
+.idea/
+*.swp
+*.swo
+__pycache__/
+*.py[cod]
+*$py.class
+Dockerfile
+.dockerignore
+.git/
+.gitignore
+*.log
+*.sqlite
+*.db
+.DS_Store
+Thumbs.db
+.uv/
+# uv.lock
